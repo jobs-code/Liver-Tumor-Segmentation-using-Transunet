@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Page Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('static/index.jpg'); /* Replace 'background-image.jpg' with your actual background image URL */
+            background-size: cover;
+            color: #333; /* Change the font color as needed */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+          max-width: 500px;
+          margin: 50px auto;
+          padding: 10px;
+          background-color: #f8f8f8;
+          border-radius: 10px 40px;
+          box-shadow: 0 0 10px rgba(185, 29, 29, 0.1);
+          margin-top: 10%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF; /* Change the button color as needed */
+            color: #fff; /* Change the button text color as needed */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Change the button color on hover as needed */
+        }
+
+        .back-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #fff; /* Change the background color of the button as needed */
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            padding: 20px;
+            font-size: 15px;
+
+        }
+
+        
+    </style>
+</head>
+<body>
+  <button class="back-button" onclick="goBack()">
+    <i class="fas fa-arrow-left">Back</i> <!-- FontAwesome back arrow icon -->
+</button>
+
+    <form action="/prediction" method="post">
+        <label for="imageUpload">Select directory with CT Scans:</label>
+        <input type="file" id="imageUpload" name="imageUpload" webkitdirectory directory multiple>
+        <label>Enter image index value</label>
+        <input type="number" name="index">
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

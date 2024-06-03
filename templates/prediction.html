@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Image Display</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url('static/final.jpg');
+        }
+
+        #fullScreenImage {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        #fullScreenImage img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .image-container {
+            display: inline-block;  
+            margin: 5px;
+        }
+
+        .image-container img {
+            width: 350px;
+            height: 350px;
+          
+        }
+
+        .back-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #fff; /* Change the background color of the button as needed */
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            padding: 20px;
+            font-size: 15px;
+
+        }
+        h2 {
+            text-align: center; /* Centering all h2 elements */
+            color: white; /* Adding white color for better visibility */
+        }
+
+        .stage-box1 {
+            padding: 8px;
+            border: 1px solid;
+            display: inline-block;
+            color: rgb(247, 246, 246);
+            border-radius: 50px 50px;
+            margin-top: 5%;
+        }
+
+        .small-size {
+            background-color: green;
+        }
+
+        .medium-size {
+            background-color: yellow;
+        }
+
+        .large-size {
+            background-color: orange;
+        }
+
+        .extra-large-size {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="goBack()">
+        <i class="fas fa-arrow-left">Back</i> <!-- FontAwesome back arrow icon -->
+    </button>
+<center>
+    
+
+    <div class="stage-box1 {{'small-size' if size == 0 else 'medium-size' if size <= 1 else 'large-size' if size <= 2 else 'extra-large-size'}}">
+        <h1>{{stage}}</h1>
+    </div>
+
+    <h1>Tumor size = {{size}}.cm</h1>
+
+
+    <div class="image-container">
+        <h2>Original Image</h2>
+        <img src="{{ url_for('static', filename='original_image.png') }}" alt="Original Image" onclick="previewImage(this)">
+    </div>
+
+   
+    <div class="image-container">
+        <h2>Predicted Mask</h2>
+        <img src="{{ url_for('static', filename='Predicted_mask.png') }}" alt="Predicted Mask" onclick="previewImage(this)">
+    </div>
+
+    
+    <div class="image-container">
+        <h2>Final Mask</h2>
+        <img src="{{ url_for('static', filename='final_output.jpg') }}" alt="Final Mask" onclick="previewImage(this)">
+    </div>
+
+    <div id="fullScreenImage" onclick="closeFullScreen()">
+        <img id="fullScreenImg" src="" alt="Full Screen Preview">
+    </div>
+    <div id="tumor-details">
+        {% if stage == 'Stage 1' %}
+            <p>The single primary tumor (any size) hasn’t grown into any blood vessels. The cancer hasn’t spread to nearby lymph nodes nor distant sites. This stage has two subcategories.
+                Stage 1A: The primary tumor measures 2 cm or smaller.
+                Stage 1B: The primary tumor is larger than 2 cm.</p>
+        {% elif stage == 'Stage 2' %}
+            <p>A single primary tumor (any size) has grown into blood vessels, or several tumors are present (all smaller than 5 cm). The cancer hasn’t spread to nearby lymph nodes nor distant sites.</p>
+        {% elif stage == 'Stage 3' %}
+            <p>This stage has two subcategories.
+
+                Stage 3A: Several tumors have been found, and at least one is larger than 5 cm. The cancer hasn’t spread to nearby lymph nodes nor distant sites.
+                Stage 3B: Several tumors have been found, and at least one tumor is growing into a branch of the portal vein or the hepatic vein. The liver cancer hasn’t spread to nearby lymph nodes nor distant sites.</p>
+        {% elif stage == 'Stage 4' %}
+            <p>In stage 4 liver cancer the cancer may have spread to nearby lymph nodes and/or to distant sites within the body. Advanced liver cancer doesn’t often metastasize, but when it does, it’s most likely to spread to the lungs and bones. This stage has two subcategories:
+
+                Stage 4A: One or several tumors of any size have been found and the cancer has spread to nearby lymph nodes, but it has not reached distant sites. 
+                Stage 4B: One or several tumors of any size have been found. The cancer may or may not have reached nearby lymph nodes, but it has spread to faraway organs such as the lungs or bones.</p>
+        {% else %}
+            <p>.</p>
+        {% endif %}
+    </div>
+</center>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function previewImage(element) {
+            const fullScreenImage = document.getElementById('fullScreenImage');
+            const fullScreenImg = document.getElementById('fullScreenImg');
+
+            fullScreenImg.src = element.src;
+            fullScreenImage.style.display = 'flex';
+        }
+
+        function closeFullScreen() {
+            const fullScreenImage = document.getElementById('fullScreenImage');
+            fullScreenImage.style.display = 'none';
+        }
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeFullScreen();
+            }
+        });
+    </script>
+</body>
+</html>

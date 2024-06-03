@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Login and Registration Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-ayiE6Jz7GNLZvJZxqQF5Eepw9KLe9ArQ+ZVjqQqUKKihQXPKw9d1bWb3/z0gx0JqW+2Yw2pGYHys5DYO7NvW9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("static/register.jpg");
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #faf8f8;
+            border-radius: 8px 100px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .fa {
+            margin-right: 8px;
+        }
+        h1{
+            color:green;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            max-width: 80%;
+            margin: 50px 10px;
+            padding: 20px;
+            border: black;
+            border-radius: 100px 70px;
+            background-color: #b5beb5;
+
+        }
+        h2{
+            color:rgb(0, 60, 128);
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            font-weight: bolder;
+
+        }
+    </style>
+</head>
+<body><center>
+    
+
+    <h1> Welcome to our website where you can accurately predict liver tumor levels and<br> perform segmentation with precision </h1>
+</center>
+
+    <div class="form-container" id="login-form">
+        <center>
+            
+        <h2>Login</h2>
+    </center>
+
+        <form action="/login" method="post">
+            <label><i class="fas fa-envelope"></i> Email</label>
+            <input type="email" name="email">
+            <label><i class="fas fa-lock"></i> Password</label>
+            <input type="password" name="pass">
+            <input type="submit" value="Login">
+        </form>
+        <p>Don't have an account? <a href="#" onclick="toggleForm('register-form')">Register here</a></p>
+    </div>
+
+    <div class="form-container" id="register-form" style="display: none;">
+        <center>
+            
+        <h2>Register</h2>
+    </center>
+
+        <form action="/register" method="post">
+            <label><i class="fas fa-user"></i> Name</label>
+            <input type="text" name="name">
+            <label><i class="fas fa-envelope"></i> Email</label>
+            <input type="email" name="email">
+            <label><i class="fas fa-lock"></i> Password</label>
+            <input type="password" name="pass">
+            <label><i class="fas fa-lock"></i> Confirm Password</label>
+            <input type="password" name="pass1">
+            <input type="submit" value="Register">
+        </form>
+        <p>Already have an account? <a href="#" onclick="toggleForm('login-form')">Login here</a></p>
+    </div>
+
+    <script>
+        function toggleForm(formId) {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('register-form').style.display = 'none';
+            document.getElementById(formId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
