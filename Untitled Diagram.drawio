@@ -1,0 +1,48 @@
+<mxfile host="app.diagrams.net" modified="2024-06-11T09:03:28.482Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0" version="24.5.2" etag="bNTrzg2dyz8amysVEJgu" type="github">
+  <diagram name="Page-1" id="Nf8kOiN-ifsv5rf1U_vj">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="ConvolutionalBackbone" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="150" width="426" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="conv1" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="175" y="35" width="56" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="conv2" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="281" y="35" width="56" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="conv3" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="388" y="35" width="56" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="conv4" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="494" y="35" width="56" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Input Image" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry y="35" width="100" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.99921875;exitY=0.5;entryX=-0.0013950892857142857;entryY=0.5;" edge="1" parent="1" source="7" target="3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9" value="" style="curved=1;startArrow=none;endArrow=block;exitX=1.0072544642857142;exitY=0.5;entryX=0.007254464285714286;entryY=0.5;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="10" value="" style="curved=1;startArrow=none;endArrow=block;exitX=1.0159040178571428;exitY=0.5;entryX=-0.001953125;entryY=0.5;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="11" value="" style="curved=1;startArrow=none;endArrow=block;exitX=1.0066964285714286;exitY=0.5;entryX=0.006696428571428571;entryY=0.5;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
